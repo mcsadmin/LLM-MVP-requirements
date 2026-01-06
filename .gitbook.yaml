@@ -1,0 +1,9 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+# Redirects for clean URLs
+redirects:
+  previous/path: new-path
