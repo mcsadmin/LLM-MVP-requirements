@@ -1,35 +1,33 @@
-# Promis Data Collection #SystemFunction
+# Promis Data Collection
 
+**Sequence:** 02  
 **Source:** MVP Requirements / Promis Data Collection #SystemFunction  
 **ClickUp Page ID:** 8cp80ab-4435  
-**Last Updated:** 2025-01-03  
-**Tags:** #SystemFunction #PromisIntegration #DataCollection #Xero #QuickBooks
+**Last Updated:** 2025-12-07  
+**Tags:** #SystemFunction #PromisIntegration #DataProcessing
 
 ---
 
-## 1. Connect, Disconnect, Reconnect
-
-### 1. Integrations should support easy connect, disconnect and reconnect client user actions.
-
-1. **WHY:** Invoice data is the basis for service delivery.
-2. **WHAT:**
-    1. **Xero:**
+# 1\. Connect, Disconnect, Reconnect
+### 1\. Integrations should support easy connect, disconnect and reconnect client user actions.
+1. WHY: Invoice data is the basis for service delivery.
+2. WHAT:
+    1. Xero:
         1. Client user interactions: as per [v1.1 requirements](https://hackmd.io/x7b95YKQQs2ApC9PGFHVSQ?both) 4.1.1, 4.1.2, 4.1.3, 4.1.7, 4.2.1, 4.2.2, 4.3.2 & 4.3.3.
             1. 4.1.3 may not have been included in MVP - need to confirm with Yani.
         2. Xero app launcher integration (see ticket [#966](https://github.com/CredComSoc/cofi-app-llm/issues/966)).
             1. Might be post-MVP.
         3. LLM registration via Xero app.
             1. Might be post-MVP.
-    2. **QuickBooks:**
+    2. QuickBooks:
         1. Client user interactions as per [v1.1 requirement](https://hackmd.io/x7b95YKQQs2ApC9PGFHVSQ?both) 5.3.
         2. QuickBooks app launcher integration
             1. Might be post-MVP.
         3. LLM registration via QuickBooks app.
             1. Might be post-MVP.
-    3. Collected invoice data can be subjected to [further processing](https://app.clickup.com/9015918923/v/dc/8cp80ab-3995/8cp80ab-5635).
+    3. Collected invoice data can be subjected to [further processing](../../requirements/system-functions/03-promis-data-pre-processing.md).
 
-### 9. Additional testing notes
-
+### 9\. Additional testing notes
 *   Tickets with relevant testing scripts/requirements:
     *   1315:
         *   Xero:
@@ -46,20 +44,18 @@
     *   Ensure that propagation logic from core to final is per client user and not for the whole set
 
 **Board clean-up notes**
-
 *   Tickets that can be closed because their testing scripts are relevant, but captured by #1315:
     *   849; 923; 1080; 961; 889
 *   Tickets that can be closed as obsolete:
     *   
 
-### 10. Post-MVP notes
-
+### 10\. Post-MVP notes
 *   Xero partner certification
     *   [Application form](https://docs.google.com/forms/d/e/1FAIpQLSdnauYFf3yCaZF3lzAKXlQBIgI2QRZCWojZ87aJfUj5RWrXgw/viewform)
     *   Notes
-        *   [https://developer.xero.com/xero-developer-platform-terms-conditions](https://developer.xero.com/xero-developer-platform-terms-conditions)
-        *   'Your terms should also clearly describe how and why you collect, store, use and share any user data.'
-        *   14\. Collaborators: Sometimes, you might want to use a third party (like a subcontractor or a third party development company) to help you connect to the developer platform - we call them collaborators.
+        *   [https://developer.xero.com/xero-developer-platform-terms-conditions](https://developer.xero.com/xero-developer-platform-terms-conditions)[](https://developer.xero.com/xero-developer-platform-terms-conditions)
+        *   ‘Your terms should also clearly describe how and why you collect, store, use and share any user data.’
+        *   14\. Collaborators: Sometimes, you might want to use a third party (like a subcontractor or a third party development company) to help you connect to the developer platform - we call them collaborators.
             *   Review with respect to Promis
         *   15\. Security
             *   Ask Paul to review
@@ -82,17 +78,12 @@
     4. Could also specify with respect to target market share:
         1. Market guides:
             1. [https://www.gartner.com/en](https://www.gartner.com/en)
-            2. [https://accountinginsights.org/gartner-magic-quadrant-insights-for-accounting-software/](https://accountinginsights.org/gartner-magic-quadrant-insights-for-accounting-software/)
-
----
-
-## 2. Collect invoice data
-
-### 1. Collected invoice data accurately reflects the current state of those of the client user's issued invoices that are suitable for clearing, as captured by their accounting platform, from 01/01/2024 to the present.
-
-1. **WHY:** Invoice data is the basis for service delivery.
-2. **WHAT:**
-    1. **Xero**
+            2. [https://accountinginsights.org/gartner-magic-quadrant-insights-for-accounting-software/](https://accountinginsights.org/gartner-magic-quadrant-insights-for-accounting-software/) ﻿
+# 2\. Collect invoice data
+### 1\. Collected invoice data accurately reflects the current state of those of the client user's issued invoices that are suitable for clearing, as captured by their accounting platform, from 01/01/2024 to the present.
+1. WHY: Invoice data is the basis for service delivery.
+2. WHAT:
+    1. Xero
         1. Invoice data collection as per:
             1. [v1.1 requirements](https://hackmd.io/x7b95YKQQs2ApC9PGFHVSQ?both) 4.1.4 and 4.1.6
             2. [late-June changes to v1.1](https://docs.google.com/document/d/1te7A3OHt029ztpIlxA5qx55-wJc-p_3lQTpbf7bhmQc/edit?tab=t.0#heading=h.6vsswlj6g8cq)
@@ -112,7 +103,7 @@
             1. Mapping of Xero user actions to 'Status' field as per [ticket #1373](https://github.com/CredComSoc/cofi-app-llm/issues/1373).
                 1. See also [ticket #1223](https://github.com/orgs/CredComSoc/projects/6/views/8?pane=issue&itemId=116746026&issue=CredComSoc%7Ccofi-app-llm%7C1223) for mapping of Xero (and QuickBooks) statuses to Promis 'Status' field, and onward mapping to Issuance Status, Payment Status, and Voided Status (although NB that onward mappings are now being done at ETL stage - only Xero & QuickBooks statuses to Promis 'Status' is relevant here).
             2. Invoices with a Status of 'AUTHORISED' should be loaded before invoices with a Status of 'PAID' as per [ticket #1478](https://github.com/CredComSoc/cofi-app-llm/issues/1478).
-    2. **QuickBooks**
+    2. QuickBooks
         1. Invoice data collection as per:
             1. [v1.1 requirement 5.3](https://hackmd.io/x7b95YKQQs2ApC9PGFHVSQ?both)
             2. [late-June changes to v1.1](https://docs.google.com/document/d/1te7A3OHt029ztpIlxA5qx55-wJc-p_3lQTpbf7bhmQc/edit?tab=t.0#heading=h.6vsswlj6g8cq)
@@ -134,8 +125,7 @@
                 1. See also [ticket #1223](https://github.com/orgs/CredComSoc/projects/6/views/8?pane=issue&itemId=116746026&issue=CredComSoc%7Ccofi-app-llm%7C1223) for mapping of QuickBooks (and Xero) statuses to Promis 'Status' field, and onward mapping to Issuance Status, Payment Status, and Voided Status (although NB that onward mappings are now being done at ETL stage - only Xero & QuickBooks statuses to Promis 'Status' is relevant here).
             2. Invoices with a Status of 'AUTHORISED' should be loaded before invoices with a Status of 'PAID' as per [ticket #1478](https://github.com/CredComSoc/cofi-app-llm/issues/1478).
 
-### 9. Additional testing notes
-
+### 9\. Additional testing notes
 *   Tickets with relevant testing scripts/requirements:
     *   1315:
         *   Xero:
@@ -148,7 +138,7 @@
         *   QuickBooks:
             *   tbc - need to modify testing scripts in 1315
 *   Check 'Collected On' and 'Updated At' timestamps:
-    *   'Collected On' should correspond to time of invoice creation in Xero/QB
+    *   ‘Collected On’ should correspond to time of invoice creation in Xero/QB
     *   'Updated At' should correspond to time of most recent invoice edit in Xero/QB
     *   See also ticket #1344 for testing script (may need to be modified)
 *   Ensure not collecting received invoices
@@ -162,13 +152,11 @@
     *   
 
 **Board clean-up notes**
-
 *   Tickets that can be closed because their testing scripts are relevant, but captured by #1315:
     *   940; 1117; 1230
 *   Tickets that can be closed as obsolete:
 
-### 10. Post-MVP notes
-
+### 10\. Post-MVP notes
 *   Invoice data collection:
     *   Direct debits: [ticket #1258](https://github.com/CredComSoc/cofi-app-llm/issues/1258) has a comment that includes a 'DirectDebitEnabled' Xero field that we might be able to collect and filter on?
     *   Investigate other types of invoices using [this source](https://www.invoicesoftwarefinder.com/Invoices-Types/Self-Billing-Invoice)
@@ -187,37 +175,31 @@
     *   Search [Invoice Data Processing MVP doc](https://app.clickup.com/9015918923/v/dc/8cp80ab-3915/8cp80ab-4215) for notes
     *   Handling of unallocated credit/debit notes?
 
----
-
-## 3. Collect contacts data
-
-### 1. 'Contact'/'Customer' data to inform debtor Organisation Identification
-
-1. **WHY:**
-    1. [Organisation identification and reconciliation](https://app.clickup.com/9015918923/v/dc/8cp80ab-3995/8cp80ab-5675) is a requirement for service delivery, and it may or may not be easy to identify a client user's debtors just from the Contact 'name' field included with collected invoice data. It will also be useful to collect client users' creditors so that we can enable them to invite their suppliers.
-2. **WHAT:**
+# 3\. Collect contacts data
+### 1\. ‘Contact’/'Customer' data to inform debtor Organisation Identification
+1. WHY:
+    1. [Organisation identification and reconciliation](https://app.clickup.com/9015918923/v/dc/8cp80ab-3995/8cp80ab-5675) is a requirement for service delivery, and it may or may not be easy to identify a client user’s debtors just from the Contact 'name' field included with collected invoice data. It will also be useful to collect client users' creditors so that we can enable them to invite their suppliers.
+2. WHAT:
     1. Xero:
         1. See tickets [#1258](https://github.com/CredComSoc/cofi-app-llm/issues/1258), [#1364](https://github.com/CredComSoc/cofi-app-llm/issues/1364).
     2. QuickBooks:
         1. See tickets [#1365](https://github.com/CredComSoc/cofi-app-llm/issues/1365).
 
----
-
-## 4. Number of connections & concurrency
-
-### 1. Number of connections supported by each accounting platform is not a constraint on growth in number of client users
-
-1. **WHY:** We aim to serve 100-1000 client users through the MVP. The limiting factor to growth needs to be sales capacity, rather than constraints imposed by accounting platforms.
-2. **WHAT:**
+# 4\. Number of connections & concurrency
+### 1\. Number of connections supported by each accounting platform is not a constraint on growth in number of client users
+1. WHY: We aim to serve 100-1000 client users through the MVP. The limiting factor to growth needs to be sales capacity, rather than constraints imposed by accounting platforms.
+2. WHAT:
     1. Xero imposes limits on the number of active connections between itself and the LLM app. We need to ensure that we comply with their requirements for these limits not to constrain growth in client user numbers.
         1. Needs to be addressed via partnership certification process (see ticket [#1144](https://github.com/CredComSoc/cofi-app-llm/issues/1144)).
     2. QuickBooks don't impose equivalent limits.
     3. Concurrency/limitations imposed by Promis: has been upgraded by Neil, and should be fine for MVP, but will need to be load tested.
+###
 
 ---
 
 **Document Metadata:**
-- **Created:** 2025-01-06
+- **Created:** 2025-06-25
+- **Sequence Number:** 02
 - **Source System:** ClickUp
 - **Workspace ID:** 9015918923
 - **Doc ID:** 8cp80ab-3995
